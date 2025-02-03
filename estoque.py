@@ -47,6 +47,8 @@ df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 
+
+
 data_df = pd.DataFrame(
     {
         "faturamento": [df_filtered["Faturado Mês Qt."]]
@@ -54,11 +56,11 @@ data_df = pd.DataFrame(
 )
 
 st.data_editor(
-    faturamento,
+    data_df,
     column_config={
-        "Progresso de faturamento": st.column_config.ProgressColumn(
-            "Sales volume",
-            help="The sales volume in USD",
+        "faturamento": st.column_config.ProgressColumn(
+            "Progresso de Faturamento",
+            help="Faturado em quantidade até o momento",
             format="$%f",
             min_value=0,
             max_value=1000,
