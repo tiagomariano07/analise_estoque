@@ -67,7 +67,7 @@ st.data_editor(
         ),
     },
     hide_index=True
-
+)
 data_df
 
 # Definindo os itens específicos para exibição
