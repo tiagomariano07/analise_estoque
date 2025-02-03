@@ -46,7 +46,7 @@ df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
-df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(formatar)
+coluna_faturamento = df_filtered["Faturado Mês Qt."]
 
 st.data_editor(
     df_filtered["Faturado Mês Qt."],
