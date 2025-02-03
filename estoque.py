@@ -54,7 +54,7 @@ st.data_editor(
             help="Progresso em quantidade",
             format="$%f",
             min_value=0,
-            max_value=coluna_meta,
+            max_value=1500,
         ),
     },
     hide_index=True,
