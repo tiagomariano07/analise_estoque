@@ -46,7 +46,7 @@ df_filtered["Faturado Mês Qt."] = st.data_editor(
     df_filtered["Faturado Mês Qt."],
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
-            "Progresso de faturamento",
+            "AAA",
             help="Progresso em quantidade",
             format="%f",
             min_value=0,
