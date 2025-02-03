@@ -63,11 +63,6 @@ st.data_editor(
     hide_index=True,
 )
 
-
-
-st.data_editor(colu
-
-
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
 itens_conexoes_injetadas = ["20002002", "20002037", "20002035", "20002001"]
