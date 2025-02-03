@@ -54,7 +54,7 @@ st.data_editor(
             help="Progresso em quantidade",
             format=":.0f",
             min_value=0,
-            ,
+            
         ),
     },
     hide_index=True,
