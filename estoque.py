@@ -47,8 +47,8 @@ df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 
 # Definindo os itens específicos para exibição
-itens_tubos = ["20001001", "20001002", "20001013"]
-itens_conexoes_injetadas = ["20002002", "20002037", "20002001"]
+itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
+itens_conexoes_injetadas = ["20002002", "20002037", "20002035", "20002001"]
 
 # Asegurando que os códigos de itens sejam tratados como strings
 df["Código Item"] = df["Código Item"].astype(str)
