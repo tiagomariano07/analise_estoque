@@ -16,7 +16,7 @@ st.set_page_config(layout="wide")
 st.title("Relatório de estoque")
 
 # URL do Google Sheets para exportar como XLSX
-url = "https://docs.google.com/spreadsheets/d/1lelTCCzvoxH2dxciNjRaIEEkV0DLEj9v5u6v8Y8NQa8/edit?usp=sharing"
+url = "https://docs.google.com/spreadsheets/d/1lelTCCzvoxH2dxciNjRaIEEkV0DLEj9v5u6v8Y8NQa8/export?format=xlsx"
 
 # Carregando o arquivo do Google Sheets
 df = pd.read_excel(url)
