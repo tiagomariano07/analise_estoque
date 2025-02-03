@@ -12,10 +12,6 @@ def formatar2(valor):
     return formatado
 
 # Função para colorir células negativas de vermelho
-def colorir_negativo(val):
-    color = 'background-color: red' if val < 0 else ''  # Aplica vermelho se for negativo
-    return color
-
 st.set_page_config(layout="wide")
 st.title("Relatório de estoque")
 
