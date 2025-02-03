@@ -42,7 +42,7 @@ else:
     df_filtered["Faturado Mês Qt."],
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
-            "AAA",
+            "Qtd. Faturada até o momento",
             help="Progresso em quantidade",
             format="%f",
             min_value=0,
