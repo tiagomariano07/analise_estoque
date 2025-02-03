@@ -47,20 +47,7 @@ df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 
-coluna_progresso = st.data_editor(
-    df_filtered["Faturado Mês Qt."],
-    column_config={
-        "Faturado Mês Qt.": st.column_config.ProgressColumn(
-            "AAA",
-            help="Progresso em quantidade",
-            format="%f",
-            min_value=0,
-            max_value=1000
-            
-        ),
-    },
-    hide_index=True,
-)
+
 
 
 # Definindo os itens específicos para exibição
@@ -96,6 +83,19 @@ if botao:
 
 
 df1 = pd.DataFrame(df_filtered)
-df2 = pd.DataFrame(coluna_progresso)
-df7 = pd.concat([df1, df2], axis=1, ignore_index=True)
+
+df7 = pd.concat([df1, coluna_progresso = st.data_editor(
+    df_filtered["Faturado Mês Qt."],
+    column_config={
+        "Faturado Mês Qt.": st.column_config.ProgressColumn(
+            "AAA",
+            help="Progresso em quantidade",
+            format="%f",
+            min_value=0,
+            max_value=1000
+            
+        ),
+    },
+    hide_index=True,
+)], axis=1, ignore_index=True)
 st.dataframe(df7)
