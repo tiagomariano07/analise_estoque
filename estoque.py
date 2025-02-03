@@ -49,7 +49,7 @@ df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar
 coluna_faturamento = df_filtered["Faturado Mês Qt."]
 
 st.data_editor(
-    df_filtered["Faturado Mês Qt."],
+    coluna_faturamento,
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
             "Progresso de faturamento",
