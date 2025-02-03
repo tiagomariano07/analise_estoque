@@ -47,6 +47,7 @@ df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 coluna_faturamento = df_filtered["Faturado Mês Qt."]
+coluna_meta = df_filtered["Média Trimestre"]
 
 st.data_editor(
     coluna_faturamento,
@@ -56,7 +57,7 @@ st.data_editor(
             help="Progresso em quantidade",
             format="$%f",
             min_value=0,
-            max_value=1000,
+            max_value=coluna_meta,
         ),
     },
     hide_index=True,
