@@ -40,14 +40,12 @@ else:
     df_filtered = df[df["Código Item"].apply(formatar2) == filtro_codigo]
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 
-
-
 # Formatação dos valores
 df_filtered["Dias Estoque - cart"] = df_filtered["Dias Estoque - cart"].apply(formatar)
 df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
-df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
+#df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 
 df_filtered["Faturado Mês Qt."] = st.data_editor(
     df_filtered["Faturado Mês Qt."],
