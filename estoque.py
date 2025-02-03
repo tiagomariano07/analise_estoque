@@ -34,21 +34,6 @@ botao = st.toggle("Exibir itens principais")
 if filtro_codigo == "":
     # Exibe por família selecionada
     df_filtered = df[df["Descrição Familia"] == familia_selecionada]
-    coluna_progresso = st.data_editor(
-    df_filtered["Faturado Mês Qt."],
-    column_config={
-        "Faturado Mês Qt.": st.column_config.ProgressColumn(
-            "AAA",
-            help="Progresso em quantidade",
-            format="%f",
-            min_value=0,
-            max_value=1000
-            
-        ),
-    },
-    hide_index=True,
-)
-
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 else:
     # Exibe por código do item
