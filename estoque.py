@@ -84,7 +84,7 @@ if botao:
 
 df1 = pd.DataFrame(df_filtered)
 
-df7 = pd.concat([df1, coluna_progresso = st.data_editor(
+coluna_progresso = st.data_editor(
     df_filtered["Faturado Mês Qt."],
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
@@ -97,5 +97,6 @@ df7 = pd.concat([df1, coluna_progresso = st.data_editor(
         ),
     },
     hide_index=True,
-)], axis=1, ignore_index=True)
-st.dataframe(df7)
+)
+
+st.dataframe(df1)
