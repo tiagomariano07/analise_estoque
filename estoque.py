@@ -52,7 +52,9 @@ st.data_editor(
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
             "Progresso de faturamento",
             help="Progresso em quantidade",
+            format=":",
             min_value=0,
+            max_value=1000
             
         ),
     },
