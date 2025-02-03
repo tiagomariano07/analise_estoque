@@ -62,7 +62,6 @@ coluna_progresso = st.data_editor(
     hide_index=True,
 )
 
-coluna_progresso = df_filtered["Faturado Mês Qt."].apply(formatar)
 
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
@@ -96,4 +95,6 @@ if botao:
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
 
-coluna_progresso
+df1 = pd.DataFrame(df_filtered)
+df2 = pd.DataFrame(coluna_progresso)
+df3 = pd.concat([df1, df2], axis=1)
