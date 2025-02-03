@@ -40,8 +40,6 @@ else:
     df_filtered = df[df["Código Item"].apply(formatar2) == filtro_codigo]
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 
-coluna_meta = df_filtered["Média Trimestre"]
-
 df_filtered["Faturado Mês Qt."] = st.data_editor(
     df_filtered["Faturado Mês Qt."],
     column_config={
@@ -63,6 +61,7 @@ df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
+df_filtered["Faturado Mês Qt."].apply(formatar)
 
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
