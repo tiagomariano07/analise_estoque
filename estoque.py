@@ -40,10 +40,6 @@ else:
     df_filtered = df[df["Código Item"].apply(formatar2) == filtro_codigo]
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 
-
-
-
-coluna_faturamento = df_filtered["Faturado Mês Qt."]
 coluna_meta = df_filtered["Média Trimestre"]
 
 df_filtered["Faturado Mês Qt."] = st.data_editor(
