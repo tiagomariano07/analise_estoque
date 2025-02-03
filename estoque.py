@@ -39,8 +39,6 @@ else:
     df_filtered = df[df["Código Item"].apply(formatar2) == filtro_codigo]
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 
-df_styled = df_filtered.style.applymap(colorir_negativo, subset=["Saldo", "Dias Estoque - cart"])
-
 # Formatação dos valores
 df_filtered["Dias Estoque - cart"] = df_filtered["Dias Estoque - cart"].apply(formatar)
 df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
