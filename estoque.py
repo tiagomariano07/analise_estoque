@@ -50,7 +50,7 @@ df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(format
 
 
 ## BARRA DE PROGRESSO
-barra_de_progresso = st.data_editor(df_filtered["Faturado Mês Qt."],column_config={"Faturado Mês Qt.": st.column_config.ProgressColumn("Progresso de Faturamento",
+barra_de_progresso = st.data_editor(df_filtered["Faturado Mês Qt."],column_config={"faturado.": st.column_config.ProgressColumn("Progresso de Faturamento",
             format="$%f",
             min_value=0,
             max_value=df_filtered["Média Trimestre"],
