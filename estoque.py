@@ -30,7 +30,6 @@ filtro_selecionado = st.sidebar.selectbox("Classificar por: ", lista_filtros)
 filtro_codigo = st.sidebar.text_input("Pesquisa por código","")
 botao = st.toggle("Exibir itens principais")
 
-
 # Filtrando os dados com base nos inputs do usuário
 if filtro_codigo == "":
     # Exibe por família selecionada
@@ -47,6 +46,27 @@ df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
+
+data_df = pd.DataFrame(
+    {
+        "faturamento": [df_filtered["Faturado Mês Qt."]
+    }
+)
+
+st.data_editor(
+    faturamento,
+    column_config={
+        "Progresso de faturamento": st.column_config.ProgressColumn(
+            "Sales volume",
+            help="The sales volume in USD",
+            format="$%f",
+            min_value=0,
+            max_value=1000,
+        ),
+    },
+    hide_index=True
+
+data_df
 
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
@@ -74,6 +94,7 @@ if botao:
     df_conexoes_injetadas["Saldo"] = df_conexoes_injetadas["Saldo"].apply(formatar)
     df_conexoes_injetadas["Carteira"] = df_conexoes_injetadas["Carteira"].apply(formatar)
     df_conexoes_injetadas["Média Trimestre"] = df_conexoes_injetadas["Média Trimestre"].apply(formatar)
+    data_df
 
     # Verificando se os DataFrames filtrados contém dados
     st.write("Principais Itens - Tubos", df_tubos)
