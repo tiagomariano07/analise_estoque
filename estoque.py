@@ -94,7 +94,7 @@ if botao:
     st.write("Principais Itens - Tubos", df_tubos)
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
-df_filtered
+
 df1 = pd.DataFrame(df_filtered)
 df2 = pd.DataFrame(coluna_progresso)
-df3 = pd.concat([df1, df2], axis=1)
+df7 = pd.concat([df1, df2], axis=1, ignore_index=True)
