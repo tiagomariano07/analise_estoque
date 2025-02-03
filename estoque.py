@@ -49,7 +49,7 @@ df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar
 
 data_df = pd.DataFrame(
     {
-        "faturamento": [df_filtered["Faturado Mês Qt."]
+        "faturamento": [df_filtered["Faturado Mês Qt."]]
     }
 )
 
