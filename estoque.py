@@ -48,7 +48,9 @@ df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(formatar)
 
-st.data_editor(data_df,column_config={"faturamento": st.column_config.ProgressColumn("Progresso de Faturamento",
+
+## BARRA DE PROGRESSO
+barra_de_progresso = st.data_editor(df_filtered["Faturado Mês Qt."],column_config={"Faturado Mês Qt.": st.column_config.ProgressColumn("Progresso de Faturamento",
             format="$%f",
             min_value=0,
             max_value=df_filtered["Média Trimestre"],
@@ -56,7 +58,7 @@ st.data_editor(data_df,column_config={"faturamento": st.column_config.ProgressCo
     },
     hide_index=True
 )
-data_df
+
 
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
