@@ -54,10 +54,7 @@ df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(format
 
 
 data_df = pd.DataFrame(
-    {
-        df_filtered["Faturado Mês Qt."],
-    }
-)
+        df_filtered["Faturado Mês Qt."],)
 
 st.data_editor(
     data_df,
@@ -69,7 +66,7 @@ st.data_editor(
             min_value=0,
             max_value=df_filtered["Média Trimestre"],
         ),
-    },
+    
     hide_index=True,
 )
 
