@@ -47,17 +47,16 @@ df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(formatar)
-coluna_faturado = df_filtered["Faturado Mês Qt."]
 
 st.data_editor(
-    coluna_faturado,
+    df_filtered["Faturado Mês Qt."],
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
-            "Sales volume",
-            help="The sales volume in USD",
+            "Progresso de faturamento",
+            help="Progresso em quantidade",
             format="$%f",
             min_value=0,
-            max_value=10000,
+            max_value=df_filtered["Média Trimestre"],
         ),
     },
     hide_index=True,
