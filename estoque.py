@@ -46,8 +46,7 @@ df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
-
-
+df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."[.apply(formatar)
 
 data_df = pd.DataFrame(
     {
@@ -96,8 +95,7 @@ if botao:
     df_conexoes_injetadas["Saldo"] = df_conexoes_injetadas["Saldo"].apply(formatar)
     df_conexoes_injetadas["Carteira"] = df_conexoes_injetadas["Carteira"].apply(formatar)
     df_conexoes_injetadas["Média Trimestre"] = df_conexoes_injetadas["Média Trimestre"].apply(formatar)
-    data_df
-
+  
     # Verificando se os DataFrames filtrados contém dados
     st.write("Principais Itens - Tubos", df_tubos)
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
