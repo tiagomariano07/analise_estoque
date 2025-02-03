@@ -49,11 +49,7 @@ df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar
 df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(formatar)
 coluna_faturado = df_filtered["Faturado Mês Qt."]
 
-st.data_editor(coluna_faturado, column_config={coluna_faturado: st.column_config.ProgressColumn(
-            "Sales volume",
-            format="$%f",
-            min_value=0,
-            max_value=df_filtered["Média Trimestre"]})
+st.data_editor(coluna_faturado, column_config={coluna_faturado: st.column_config.ProgressColumn("faturamento", format="$%f", min_value=0, max_value=df_filtered["Média Trimestre"]})
 
 
 
