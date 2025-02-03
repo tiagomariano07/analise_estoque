@@ -34,10 +34,40 @@ botao = st.toggle("Exibir itens principais")
 if filtro_codigo == "":
     # Exibe por família selecionada
     df_filtered = df[df["Descrição Familia"] == familia_selecionada]
+    coluna_progresso = st.data_editor(
+    df_filtered["Faturado Mês Qt."],
+    column_config={
+        "Faturado Mês Qt.": st.column_config.ProgressColumn(
+            "AAA",
+            help="Progresso em quantidade",
+            format="%f",
+            min_value=0,
+            max_value=1000
+            
+        ),
+    },
+    hide_index=True,
+)
+
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 else:
     # Exibe por código do item
     df_filtered = df[df["Código Item"].apply(formatar2) == filtro_codigo]
+    coluna_progresso = st.data_editor(
+    df_filtered["Faturado Mês Qt."],
+    column_config={
+        "Faturado Mês Qt.": st.column_config.ProgressColumn(
+            "AAA",
+            help="Progresso em quantidade",
+            format="%f",
+            min_value=0,
+            max_value=1000
+            
+        ),
+    },
+    hide_index=True,
+)
+
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 
 # Formatação dos valores
@@ -46,9 +76,6 @@ df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
-
-
-
 
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
@@ -82,21 +109,4 @@ if botao:
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
 
-df1 = pd.DataFrame(df_filtered)
-
-coluna_progresso = st.data_editor(
-    df_filtered["Faturado Mês Qt."],
-    column_config={
-        "Faturado Mês Qt.": st.column_config.ProgressColumn(
-            "AAA",
-            help="Progresso em quantidade",
-            format="%f",
-            min_value=0,
-            max_value=1000
-            
-        ),
-    },
-    hide_index=True,
-)
-
-st.dataframe(df1)
+st.dataframe(df_filtered)
