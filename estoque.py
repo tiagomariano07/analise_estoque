@@ -98,3 +98,4 @@ if botao:
 df1 = pd.DataFrame(df_filtered)
 df2 = pd.DataFrame(coluna_progresso)
 df7 = pd.concat([df1, df2], axis=1, ignore_index=True)
+st.dataframe(df7)
