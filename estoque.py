@@ -46,7 +46,7 @@ else:
 coluna_faturamento = df_filtered["Faturado Mês Qt."]
 coluna_meta = df_filtered["Média Trimestre"]
 
-nova_coluna = st.data_editor(
+df_filtered["Faturado Mês Qt."] = st.data_editor(
     coluna_faturamento,
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
@@ -61,14 +61,12 @@ nova_coluna = st.data_editor(
     hide_index=True,
 )
 
-
 # Formatação dos valores
 df_filtered["Dias Estoque - cart"] = df_filtered["Dias Estoque - cart"].apply(formatar)
 df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
 df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
-df_filtered["Faturado Mês Qt."] = nova_coluna
 
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
