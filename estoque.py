@@ -45,7 +45,7 @@ df_filtered["Dias Estoque - cart"] = df_filtered["Dias Estoque - cart"].apply(fo
 df_filtered["Saldo"] = df_filtered["Saldo"].apply(formatar)
 df_filtered["Carteira"] = df_filtered["Carteira"].apply(formatar)
 df_filtered["Código Item"] = df_filtered["Código Item"].apply(formatar2)
-#df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
+df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar)
 
 df_filtered["Faturado Mês Qt."] = st.data_editor(
     df_filtered["Faturado Mês Qt."],
@@ -61,6 +61,8 @@ df_filtered["Faturado Mês Qt."] = st.data_editor(
     },
     hide_index=True,
 )
+
+df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(formatar)
 
 # Definindo os itens específicos para exibição
 itens_tubos = ["20001001", "20001002", "20001005", "20001013"]
@@ -93,4 +95,4 @@ if botao:
     st.write("Principais Itens - Tubos", df_tubos)
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
-#st.dataframe(df_filtered)
+st.dataframe(df_filtered)
