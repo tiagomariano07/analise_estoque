@@ -28,6 +28,8 @@ lista_filtros = ("Saldo", "Dias Estoque - cart")
 familia_selecionada = st.sidebar.selectbox("Selecione a Familia", df["Descrição Familia"].unique())
 filtro_selecionado = st.sidebar.selectbox("Classificar por: ", lista_filtros)
 filtro_codigo = st.sidebar.text_input("Pesquisa por código","")
+botao = st.toggle("Exibir itens principais")
+
 
 # Filtrando os dados com base nos inputs do usuário
 if filtro_codigo == "":
@@ -53,23 +55,25 @@ itens_conexoes_injetadas = ["20002002", "20002037", "20002035", "20002001"]
 # Asegurando que os códigos de itens sejam tratados como strings
 df["Código Item"] = df["Código Item"].astype(str)
 
-# Filtrando os itens específicos da família "Tubos"
-df_tubos = df[(df["Descrição Familia"] == "TUBOS") & (df["Código Item"].isin(itens_tubos))]
 
-# Filtrando os itens específicos da família "Conexões Injetadas"
-df_conexoes_injetadas = df[(df["Descrição Familia"] == "CONEXÕES INJETADAS") & (df["Código Item"].isin(itens_conexoes_injetadas))]
+if botao:
+    # Filtrando os itens específicos da família "Tubos"
+    df_tubos = df[(df["Descrição Familia"] == "TUBOS") & (df["Código Item"].isin(itens_tubos))]
 
-df_tubos.sort_values(filtro_selecionado, ascending=True, inplace=True)
-df_tubos["Dias Estoque - cart"] = df_tubos["Dias Estoque - cart"].apply(formatar)
-df_tubos["Saldo"] = df_tubos["Saldo"].apply(formatar)
-df_tubos["Carteira"] = df_tubos["Carteira"].apply(formatar)
-df_tubos["Média Trimestre"] = df_tubos["Média Trimestre"].apply(formatar)
+    # Filtrando os itens específicos da família "Conexões Injetadas"
+    df_conexoes_injetadas = df[(df["Descrição Familia"] == "CONEXÕES INJETADAS") & (df["Código Item"].isin(itens_conexoes_injetadas))]
 
-df_conexoes_injetadas.sort_values(filtro_selecionado, ascending=True, inplace=True)
-df_conexoes_injetadas["Dias Estoque - cart"] = df_conexoes_injetadas["Dias Estoque - cart"].apply(formatar)
-df_conexoes_injetadas["Saldo"] = df_conexoes_injetadas["Saldo"].apply(formatar)
-df_conexoes_injetadas["Carteira"] = df_conexoes_injetadas["Carteira"].apply(formatar)
-df_conexoes_injetadas["Média Trimestre"] = df_conexoes_injetadas["Média Trimestre"].apply(formatar)
+    df_tubos.sort_values(filtro_selecionado, ascending=True, inplace=True)
+    df_tubos["Dias Estoque - cart"] = df_tubos["Dias Estoque - cart"].apply(formatar)
+    df_tubos["Saldo"] = df_tubos["Saldo"].apply(formatar)
+    df_tubos["Carteira"] = df_tubos["Carteira"].apply(formatar)
+    df_tubos["Média Trimestre"] = df_tubos["Média Trimestre"].apply(formatar)
+
+    df_conexoes_injetadas.sort_values(filtro_selecionado, ascending=True, inplace=True)
+    df_conexoes_injetadas["Dias Estoque - cart"] = df_conexoes_injetadas["Dias Estoque - cart"].apply(formatar)
+    df_conexoes_injetadas["Saldo"] = df_conexoes_injetadas["Saldo"].apply(formatar)
+    df_conexoes_injetadas["Carteira"] = df_conexoes_injetadas["Carteira"].apply(formatar)
+    df_conexoes_injetadas["Média Trimestre"] = df_conexoes_injetadas["Média Trimestre"].apply(formatar)
 
 # Verificando se os DataFrames filtrados contém dados
 st.write("Principais Itens - Tubos", df_tubos)
