@@ -44,7 +44,7 @@ else:
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
             "Qtd. Faturada até o momento",
             help="Progresso em quantidade",
-            format=".%f",
+            format="%.f",
             min_value=0,
             max_value=1000
             
