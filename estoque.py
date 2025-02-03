@@ -38,7 +38,7 @@ if filtro_codigo == "":
 else:
     # Exibe por código do item
     df_filtered = df[df["Código Item"].apply(formatar2) == filtro_codigo]
-    coluna_progresso.apply(formatar) = st.data_editor(
+    coluna_progresso = st.data_editor(
     df_filtered["Faturado Mês Qt."],
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
