@@ -65,6 +65,7 @@ st.data_editor(
             format="$%f",
             min_value=0,
             max_value=df_filtered["Média Trimestre"],
+            }       
         ),
     
     hide_index=True,
