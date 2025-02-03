@@ -75,8 +75,8 @@ if botao:
     df_conexoes_injetadas["Carteira"] = df_conexoes_injetadas["Carteira"].apply(formatar)
     df_conexoes_injetadas["Média Trimestre"] = df_conexoes_injetadas["Média Trimestre"].apply(formatar)
 
-# Verificando se os DataFrames filtrados contém dados
-st.write("Principais Itens - Tubos", df_tubos)
-st.write("Principais Itens - Conexões", df_conexoes_injetadas)
+    # Verificando se os DataFrames filtrados contém dados
+    st.write("Principais Itens - Tubos", df_tubos)
+    st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
 st.dataframe(df_filtered)
