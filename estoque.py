@@ -49,9 +49,33 @@ df_filtered["Média Trimestre"] = df_filtered["Média Trimestre"].apply(formatar
 df_filtered["Faturado Mês Qt."] = df_filtered["Faturado Mês Qt."].apply(formatar)
 
 
-## BARRA DE PROGRESSO
-barra_de_progresso = st.data_editor("Faturado Mês Qt.", column_config={"Faturado.": st.column_config.ProgressColumn("Progresso de Faturamento", format="$%f", min_value=0, max_value = "Média Trimestre",
-),},hide_index=True)
+
+
+
+
+data_df = pd.DataFrame(
+    {
+        df_filtered["Faturado Mês Qt."],
+    }
+)
+
+st.data_editor(
+    data_df,
+    column_config={
+        df_filtered["Faturado Mês Qt."]: st.column_config.ProgressColumn(
+            "Sales volume",
+            help="The sales volume in USD",
+            format="$%f",
+            min_value=0,
+            max_value=df_filtered["Média Trimestre"],
+        ),
+    },
+    hide_index=True,
+)
+
+
+
+
 
 
 # Definindo os itens específicos para exibição
