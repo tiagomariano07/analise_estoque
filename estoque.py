@@ -43,7 +43,7 @@ else:
 coluna_meta = df_filtered["Média Trimestre"]
 
 df_filtered["Faturado Mês Qt."] = st.data_editor(
-    coluna_faturamento,
+    df_filtered["Faturado Mês Qt."],
     column_config={
         "Faturado Mês Qt.": st.column_config.ProgressColumn(
             "Progresso de faturamento",
