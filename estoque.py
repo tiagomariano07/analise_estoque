@@ -95,4 +95,4 @@ if botao:
     st.write("Principais Itens - Tubos", df_tubos)
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
-st.dataframe(df_filtered)
+st.dataframe(df_filtered, df_filtered["Faturado Mês Qt."])
