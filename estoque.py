@@ -56,7 +56,7 @@ st.data_editor(
             help="Progresso em quantidade",
             format="$%f",
             min_value=0,
-            max_value=df_filtered["Média Trimestre"],
+            max_value=1000,
         ),
     },
     hide_index=True,
