@@ -83,7 +83,7 @@ if botao:
 soma_faturado = sum(df_filtered["Faturado Mês Qt."])
 #soma_media = sum(df_filtered["Média Trimestre"])
 
-nova_medida_faturamento = soma_faturado / 15000
+nova_medida_faturamento = int(soma_faturado / 15000)
 
 
 coluna_progresso = st.data_editor(
@@ -91,7 +91,6 @@ nova_medida_faturamento,
 column_config={
     "Percentual faturado até o momento.": st.column_config.ProgressColumn(
         "Qtd. Faturada até o momento",
-        help="Progresso em quantidade",
         format="%f",
         min_value=0,
         max_value=1000
