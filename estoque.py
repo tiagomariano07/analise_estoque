@@ -89,7 +89,7 @@ nova_medida_faturamento = int(soma_faturado / 15000)
 coluna_progresso = st.data_editor(
 nova_medida_faturamento,
 column_config={
-    "Percentual faturado até o momento.": st.column_config.ProgressColumn(
+    "nova_medida_faturamento": st.column_config.ProgressColumn(
         "Qtd. Faturada até o momento",
         format="%f",
         min_value=0,
