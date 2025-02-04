@@ -38,20 +38,7 @@ if filtro_codigo == "":
 else:
     # Exibe por código do item
     df_filtered = df[df["Código Item"].apply(formatar2) == filtro_codigo]
-    coluna_progresso = st.data_editor(
-    df_filtered["Faturado Mês Qt."],
-    column_config={
-        "Faturado Mês Qt.": st.column_config.ProgressColumn(
-            "Qtd. Faturada até o momento",
-            help="Progresso em quantidade",
-            format="%f",
-            min_value=0,
-            max_value=1000
-            
-        ),
-    },
-    hide_index=True,
-)
+
 
     df_filtered.sort_values(filtro_selecionado, ascending=True, inplace=True)
 
@@ -94,4 +81,22 @@ if botao:
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
 
-st.dataframe(df_filtered)
+nova_medida_faturamento = sum(df_filtered["Faturado Mês Qt."]) / sum(df_filtered["Média Trimestre"])
+
+
+coluna_progresso = st.data_editor(
+nova_medida_faturamento,
+column_config={
+    "Percentual faturado até o momento.": st.column_config.ProgressColumn(
+        "Qtd. Faturada até o momento",
+        help="Progresso em quantidade",
+        format="%f",
+        min_value=0,
+        max_value=1000
+            
+    ),
+},
+hide_index=True,
+)   
+
+st.dataframe(coluna_progresso)
