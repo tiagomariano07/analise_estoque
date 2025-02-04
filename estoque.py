@@ -80,24 +80,4 @@ if botao:
     st.write("Principais Itens - Tubos", df_tubos)
     st.write("Principais Itens - Conexões", df_conexoes_injetadas)
 
-soma_faturado = sum(df_filtered["Faturado Mês Qt."])
-#soma_media = sum(df_filtered["Média Trimestre"])
-
-nova_medida_faturamento = int( 1200 / 15000)
-
-
-st.data_editor(
-nova_medida_faturamento,
-column_config={
-    "nova_medida_faturamento": st.column_config.ProgressColumn(
-    "nova_medida_faturamento",
-    format="%f",
-    min_value=0,
-    max_value=1000
-            
-),
-},
-hide_index=True,
-)   
-
-st.dataframe(coluna_progresso)
+st.dataframe(df)
